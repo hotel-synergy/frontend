@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+.link_text{
+    text-decoration: none;
+    color:white;
+    cursor: pointer;
+    transition: all;
+    transition-duration: .3s;
+}
+.link_text:hover{
+    color: black;
+}
+
+body{
+    background-color: white;
+    color: black;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+}
+
+.form-wrapper{
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+    background-color: #024f4f;
+    color: white;
+    width: fit-content;
+    height: fit-content;
+    padding: 2vh 2vw;
+    margin-top: 10vh;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.login-form> h1{
+    font-size: 36px;
+    margin-top: 2vh;
+    margin-bottom: .5vw;
+}
+
+.login-form> input {
+    width: 90%;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 2px 0;
+    border: none;
+}
+
+.login-form> input:focus{
+    outline: none;
+}
+
+.login-form> button {
+    width: 80%;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 1vh 0;
+    transition: all;
+    transition-duration: .3s;
+}
+
+#email{
+    margin-top: 2vh;
+}
+
+.login-form> button:hover{
+    background-color: #183D3D;
+    color: white;
+    cursor: pointer;
+}
+
+#logo{
+    width: 100px;
+    border-radius: 100%;
+    border: 4px solid rgb(0, 0, 0);
+}

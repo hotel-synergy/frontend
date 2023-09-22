@@ -1,0 +1,25 @@
+.container{
+    background-color: #024f4f;
+    color: white;
+    padding: 25px;
+    width: 25vw;
+    margin-top: 10vh;
+    border-radius: 10px;
+}
+
+.button{
+    color: white;
+    background-color: black;
+    width: 100%;
+    padding: 10px;
+
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all;
+    transition-duration: .3s;
+}
+
+.button:hover{
+    background-color: rgb(37, 37, 37);
+}
