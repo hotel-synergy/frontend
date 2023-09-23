@@ -27,7 +27,6 @@ function Setup() {
     if (!companyInformation.location) {
       return toast.error("Location is required.");
     }
-    toast.success("Company Information saved.");
     return setOption("new2");
   };
 
@@ -56,21 +55,25 @@ function Setup() {
     }
     setOption("saving");
     const saveInformationRequest = await fetch(
-      import.meta.env.VITE_API_BACKEND + "setup/",
+      import.meta.env.VITE_API_URL + "setup/",
       {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify({
-          company: companyInformation,
+          hotel: companyInformation,
           admin: adminInformation,
         }),
       }
     );
     if (saveInformationRequest.status === 200) {
       setOption("done");
-    } else {
+    } else if (saveInformationRequest.status === 400) { 
+      setOption('new1');
+      const data = await saveInformationRequest.json()
+      return toast.error(data.msg)
+    } else{
       setOption("error");
     }
   };
@@ -289,7 +292,7 @@ function Setup() {
           <div className={SetupStyle.container}>
             <h1 className={SetupStyle.title}>Setup Completed</h1>
             <p>The information is saved and software is ready.</p>
-            <button className={SetupStyle.button}>Let's begin</button>
+            <button onClick={()=>navigate('/auth/login')} className={SetupStyle.button}>Let's begin</button>
           </div>
         </>
       );
