@@ -16,6 +16,7 @@ import AdminCompany from "./pages/admin/Company";
 import AdminTables from "./pages/admin/Tables";
 import AdminRoom from "./pages/admin/Rooms";
 import Logout from "./pages/auth/Logout";
+import Setup from "./pages/auth/Setup";
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
         <Route path="/auth/reset" element={<ResetPassword />} />
         <Route path="/auth/resetPassword" element={<NewPassword />} />
         <Route path="/auth/verifyEmail" element={<EmailVerification />} />
+        <Route path="/auth/setup" element={<Setup />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
