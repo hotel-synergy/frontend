@@ -1,50 +1,59 @@
-.container{
-    background-color: rgb(150, 30, 30);
-    color: white;
-    padding: 2vw;
-    border-radius: 10px;
-    margin-top: 10vh;
+.container {
+  background-color: rgb(150, 30, 30);
+  color: white;
+  padding: 2vw;
+  border-radius: 10px;
+  margin-top: 10vh;
 }
-.btn_holder{
-    width: 100%;
-    display: flex;
-    gap: 1vw;
-    justify-content: center;
+.btn_holder {
+  width: 100%;
+  display: flex;
+  gap: 1vw;
+  justify-content: center;
 }
 
-.btn_cancel{
-    all: unset;
-    width: 100%;
-    padding: .5vw;
-    background-color: white;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all;
-    transition-duration: .3s;
+.btn_cancel {
+  all: unset;
+  width: 100%;
+  padding: 0.5vw;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all;
+  transition-duration: 0.3s;
 }
 .btn_cancel:hover {
-    background-color: rgb(255, 223, 223);
+  background-color: rgb(255, 223, 223);
 }
 
-.btn_logout{
-    all: unset;
-    width: 100%;
-    padding: .5vw;
-    background-color: red;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all;
-    transition-duration: .3s;
+.btn_logout {
+  all: unset;
+  width: 100%;
+  padding: 0.5vw;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all;
+  transition-duration: 0.3s;
 }
 
-.btn_logout:hover{
-    background-color: rgb(206, 0, 0);
+.btn_logout:hover {
+  background-color: rgb(206, 0, 0);
+}
+
+.container > h1 {
+  font-size: 28px;
+}
+
+.container > p {
+  margin-top: 5px;
+  margin-bottom: 10px;
 }

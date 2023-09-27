@@ -5,6 +5,7 @@ import Loading from '../../components/Loading';
 import { useNavigate } from 'react-router-dom';
 
 function EmailVerification() {
+  window.document.title = "Email Verification - Hotel Synergy"
   const urlsearch = new URLSearchParams(document.location.search);
   const token = urlsearch.get('token');
   const [loading, setLoading] = useState(false);
