@@ -57,5 +57,12 @@
 }
 
 .sidebar {
+  min-width: 250px;
   width: 15vw;
+}
+
+.content {
+  margin: 10px;
+  overflow: hidden;
+  width: 100%;
 }

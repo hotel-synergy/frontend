@@ -1,6 +1,7 @@
 .section {
   display: flex;
   flex-direction: column;
+  min-width: 230px;
 }
 .button {
   all: unset;

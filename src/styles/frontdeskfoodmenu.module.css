@@ -1,0 +1,95 @@
+.header {
+  width: 100%;
+  color: white;
+  background-color: rgb(212, 66, 66);
+  display: flex;
+}
+
+.headerButton {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.headerButton:hover {
+  background-color: rosybrown;
+  cursor: pointer;
+}
+
+.active {
+  background-color: rosybrown !important;
+}
+
+.addCategoryContainer {
+  padding: 2vh 2vw;
+  margin-top: 2vh;
+  width: fit-content;
+  background-color: rgba(188, 143, 143, 0.114);
+}
+
+.addCategoryContainer > h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.addCategoryContainer > p {
+  font-size: small;
+  margin-top: 0.2vh;
+}
+
+.addCategoryContainer > form {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  margin-top: 1vh;
+}
+
+.addCategoryContainer > form > fieldset {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.addCategoryContainer > form > input {
+  padding: 1vh;
+  border-radius: 10px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.addCategoryContainer > form > select {
+  padding: 1vh;
+  border-radius: 10px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.addcategoryCancel {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 1vh 3vw;
+  border-radius: 10px;
+  transition: all;
+  transition-duration: 0.5s;
+}
+
+.addcategorySave {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 1vh 3vw;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+}
+
+.addcategoryCancel:hover {
+  background-color: rgb(231, 132, 132);
+  cursor: pointer;
+}
+
+.addcategorySave:hover {
+  background-color: rgb(95, 158, 0);
+  cursor: pointer;
+}

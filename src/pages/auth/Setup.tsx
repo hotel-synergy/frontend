@@ -69,11 +69,11 @@ function Setup() {
     );
     if (saveInformationRequest.status === 200) {
       setOption("done");
-    } else if (saveInformationRequest.status === 400) { 
-      setOption('new1');
-      const data = await saveInformationRequest.json()
-      return toast.error(data.msg)
-    } else{
+    } else if (saveInformationRequest.status === 400) {
+      setOption("new1");
+      const data = await saveInformationRequest.json();
+      return toast.error(data.msg);
+    } else {
       setOption("error");
     }
   };
@@ -292,7 +292,12 @@ function Setup() {
           <div className={SetupStyle.container}>
             <h1 className={SetupStyle.title}>Setup Completed</h1>
             <p>The information is saved and software is ready.</p>
-            <button onClick={()=>navigate('/auth/login')} className={SetupStyle.button}>Let's begin</button>
+            <button
+              onClick={() => navigate("/auth/login")}
+              className={SetupStyle.button}
+            >
+              Let's begin
+            </button>
           </div>
         </>
       );

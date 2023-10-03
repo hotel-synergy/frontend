@@ -53,6 +53,7 @@ function FrontDeskSidebar() {
             onClick={() => {
               setCurrentMenu(`/frontdesk/${menu.name.toLowerCase()}`);
             }}
+            key={menu.name}
             className={
               `/frontdesk/${menu.name.toLocaleLowerCase()}` ===
               currentMenu.toLocaleLowerCase()
