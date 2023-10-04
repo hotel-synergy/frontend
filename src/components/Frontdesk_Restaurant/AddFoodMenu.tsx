@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { foodMenuCategoryType } from "../../Data.types";
 import Style from "../../styles/frontdeskfoodmenu.module.css";
 import { toast } from "react-toastify";
@@ -15,12 +15,25 @@ function AddFoodMenu({ categoryList, setScreen }: CategoryListProps) {
     setLoading(false);
     setScreen("Food Menu");
   };
+
   const [newItemInformation, setNewItemInformation] = useState({
     name: "",
-    category: categoryList[0]._id,
+    category: "",
     price: "",
     description: "",
   });
+
+  useEffect(() => {
+    if (categoryList.length > 0) {
+      setNewItemInformation({
+        ...newItemInformation,
+        category: categoryList[0]._id,
+      });
+    } else {
+      setNewItemInformation({ ...newItemInformation, category: "" });
+    }
+  }, []);
+
   const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const request = await fetch(
@@ -33,6 +46,8 @@ function AddFoodMenu({ categoryList, setScreen }: CategoryListProps) {
         body: JSON.stringify(newItemInformation),
       }
     );
+    if (request.ok) {
+    }
     setLoading(true);
     if (request.status === 200) {
       // TODO: navigate to uploader with details to upload path.
@@ -67,7 +82,7 @@ function AddFoodMenu({ categoryList, setScreen }: CategoryListProps) {
         <p>Please add a new category first to add menu items.</p>
       </>
     );
-  } else {
+  } else if (categoryList.length != 0) {
     return (
       <>
         {loading && <Loading />}
