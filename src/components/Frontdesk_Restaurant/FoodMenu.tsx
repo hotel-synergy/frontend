@@ -1,14 +1,16 @@
 import { toast } from "react-toastify";
 import { foodMenuItemType } from "../../Data.types";
 import Style from "../../styles/foodmenu.module.css";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import Loading from "../Loading";
 
 interface foodMenuProps {
   foodList: foodMenuItemType[];
+  setScreen: Dispatch<SetStateAction<string>>;
+  setItem: Dispatch<SetStateAction<foodMenuItemType>>;
 }
 
-function FoodMenu({ foodList }: foodMenuProps) {
+function FoodMenu({ foodList, setScreen, setItem }: foodMenuProps) {
   const [loading, setLoading] = useState(false);
   const deleteItem = async (item_id: string) => {
     const request = await fetch(
@@ -54,13 +56,18 @@ function FoodMenu({ foodList }: foodMenuProps) {
                   ? "https://img.freepik.com/free-vector/group-junk-food-sweet-isolated-white_1308-56156.jpg"
                   : item.image
               }
-              alt=""
             />
             <span className={Style.information}>
               <p className={Style.title}>{item.name}</p>
               <p className={Style.category}>{item.category}</p>
               <p className={Style.price}>Rs. {item.price}</p>
-              <button className={Style.buttonEdit}>
+              <button
+                onClick={() => {
+                  setScreen("editFoodItem");
+                  setItem(item);
+                }}
+                className={Style.buttonEdit}
+              >
                 <span className="material-symbols-outlined">edit</span>Edit Item
               </button>
               <button
@@ -68,6 +75,7 @@ function FoodMenu({ foodList }: foodMenuProps) {
                   const ans = confirm(`The item ${item.name} will be deleted`);
                   if (ans) {
                     deleteItem(item._id);
+                    window.location.reload();
                   }
                 }}
                 className={Style.buttonDelete}

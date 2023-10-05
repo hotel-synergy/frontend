@@ -1,0 +1,93 @@
+.editSection {
+  background-color: rgba(215, 215, 215, 0.3);
+  color: black;
+  width: fit-content;
+  padding: 5vh;
+  margin-top: 1vh;
+  border-radius: 5px;
+}
+
+.editSection > form {
+  display: flex;
+  margin-top: 2vh;
+  flex-direction: column;
+}
+
+.input {
+  display: flex;
+  gap: 0.5vh;
+  flex-direction: column;
+}
+
+.input > input {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 5px;
+}
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2vw;
+  margin-top: 2vh;
+}
+
+form > fieldset {
+  margin-top: 0.5vh;
+}
+
+.title {
+  font-size: x-large;
+}
+
+.btnCancel {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 1vh 2vw;
+  border-radius: 5px;
+  transition: all;
+  transition-duration: 0.5s;
+}
+
+.btnSubmit {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 1vh 2vw;
+  border-radius: 5px;
+  transition: all;
+  transition-duration: 0.5s;
+}
+.btnSubmit:hover {
+  cursor: pointer;
+  background-color: rgb(0, 93, 0);
+}
+
+.btnCancel:hover {
+  background-color: rgb(148, 0, 0);
+  cursor: pointer;
+  color: white;
+}
+
+.imageButton {
+  background-color: indigo;
+  color: white;
+  padding: 0.5vh 5vw;
+  border: none;
+  border-radius: 5px;
+  transition: all;
+  transition-duration: 0.5s;
+}
+
+.imageOption {
+  margin-top: 1vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imageButton:hover {
+  background-color: rgb(33, 0, 57);
+  cursor: pointer;
+}

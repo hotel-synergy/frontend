@@ -7,8 +7,8 @@ export interface foodMenuCategoryType {
 
 export interface foodMenuItemType {
   _id: string;
-  name: String;
-  price: String;
+  name: string;
+  price: string;
   image: string;
-  category: String;
+  category: string;
 }

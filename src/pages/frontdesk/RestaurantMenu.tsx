@@ -8,6 +8,8 @@ import AddFoodCategory from "../../components/Frontdesk_Restaurant/AddFoodCatego
 import AddFoodMenu from "../../components/Frontdesk_Restaurant/AddFoodMenu";
 import FoodSearch from "../../components/Frontdesk_Restaurant/FoodSearch";
 import { foodMenuCategoryType, foodMenuItemType } from "../../Data.types";
+import EditFoodCategory from "../../components/Frontdesk_Restaurant/EditFoodCategory";
+import EditFoodMenu from "../../components/Frontdesk_Restaurant/EditFoodMenu";
 
 function RestaurantMenu() {
   const [loading, setLoading] = useState(true);
@@ -15,6 +17,19 @@ function RestaurantMenu() {
   const [currentScreen, setCurrentScreen] = useState("Food Menu");
   const [foodMenu, setFoodMenu] = useState<foodMenuItemType[]>([]);
   const [categoryList, setCategoryList] = useState<foodMenuCategoryType[]>([]);
+  const [toEditItem, setToEditItem] = useState<foodMenuItemType>({
+    _id: "",
+    category: "",
+    image: "",
+    name: "",
+    price: "",
+  });
+  const [toEditCategory, setToEditCategory] = useState<foodMenuCategoryType>({
+    _id: "",
+    description: "",
+    items: "",
+    name: "",
+  });
 
   /*
 
@@ -22,7 +37,8 @@ function RestaurantMenu() {
     1. Load the menu and the menu categories.✅
     2. Display both the menu and the categories in different sections.✅
     3. Have sections for adding new menu and categories. ✅
-    4. Have sections for deleting and updating any menu or categories. ⚒️
+    4. Have sections for deleting and updating any menu or categories. 
+    [DELETING ✅, UPDATING ⚒️]
 
   */
 
@@ -58,15 +74,9 @@ function RestaurantMenu() {
         setLoading(false);
         setShowNetworkError(true);
       });
-  }, []);
+  }, [currentScreen]);
 
-  const screens = [
-    "Food Menu",
-    "Categories",
-    "Add Category",
-    "Add Menu",
-    "Search",
-  ];
+  const screens = ["Food Menu", "Categories", "Add Category", "Add Menu Item"];
 
   return (
     <>
@@ -87,18 +97,38 @@ function RestaurantMenu() {
           </li>
         ))}
       </ul>
-      {currentScreen == "Food Menu" && <FoodMenu foodList={foodMenu} />}
+      {currentScreen == "Food Menu" && (
+        <FoodMenu
+          setItem={setToEditItem}
+          setScreen={setCurrentScreen}
+          foodList={foodMenu}
+        />
+      )}
       {currentScreen == "Categories" && (
-        <FoodCategoryList categoryList={categoryList} />
+        <FoodCategoryList
+          setItem={setToEditCategory}
+          setScreen={setCurrentScreen}
+          categoryList={categoryList}
+        />
       )}
       {currentScreen == "Add Category" && (
         <AddFoodCategory setScreen={setCurrentScreen} />
       )}
-      {currentScreen == "Add Menu" && (
+      {currentScreen == "Add Menu Item" && (
         <AddFoodMenu setScreen={setCurrentScreen} categoryList={categoryList} />
       )}
       {currentScreen == "Search" && (
         <FoodSearch category={categoryList} menu={foodMenu} />
+      )}
+      {currentScreen === "editFoodCategory" && (
+        <EditFoodCategory setScreen={setCurrentScreen} item={toEditCategory} />
+      )}
+      {currentScreen === "editFoodItem" && (
+        <EditFoodMenu
+          categoryList={categoryList}
+          setScreen={setCurrentScreen}
+          item={toEditItem}
+        />
       )}
     </>
   );

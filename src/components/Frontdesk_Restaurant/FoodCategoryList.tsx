@@ -1,8 +1,11 @@
 import { toast } from "react-toastify";
 import { foodMenuCategoryType } from "../../Data.types";
 import categoryStyle from "../../styles/categoryStyle.module.css";
+import { Dispatch, SetStateAction } from "react";
 interface CategoryListProps {
   categoryList: foodMenuCategoryType[];
+  setScreen: Dispatch<SetStateAction<string>>;
+  setItem: Dispatch<SetStateAction<foodMenuCategoryType>>;
 }
 
 /*
@@ -11,7 +14,11 @@ name, description, items, (id: hidden) and action
 TODO: add edit and delete button functionality
 */
 
-function FoodCategoryList({ categoryList }: CategoryListProps) {
+function FoodCategoryList({
+  categoryList,
+  setScreen,
+  setItem,
+}: CategoryListProps) {
   const deleteItem = async (item_id: string) => {
     const request = await fetch(
       import.meta.env.VITE_API_URL + "frontdesk/menu/category",
@@ -56,14 +63,20 @@ function FoodCategoryList({ categoryList }: CategoryListProps) {
         </header>
         {categoryList.map((category, index) => (
           <div key={category._id} className={categoryStyle.category}>
-            <span style={{ backgroundColor: "green", color: "white" }}>
+            <span style={{ backgroundColor: "orange", color: "black" }}>
               {index + 1}
             </span>
             <span>{category.name}</span>
             <span>{category.description}</span>
             <span>{category.items}</span>
             <span>
-              <button className={categoryStyle.editBtn}>
+              <button
+                onClick={() => {
+                  setItem(category);
+                  setScreen("editFoodCategory");
+                }}
+                className={categoryStyle.editBtn}
+              >
                 <span className="material-symbols-outlined">edit</span>
               </button>
               <button
@@ -73,6 +86,7 @@ function FoodCategoryList({ categoryList }: CategoryListProps) {
                   );
                   if (ans) {
                     deleteItem(category._id);
+                    window.location.reload();
                   }
                 }}
                 className={categoryStyle.deleteBtn}
